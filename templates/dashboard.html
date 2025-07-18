@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Mood Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="top-bar">
+        <h2>Welcome, {{ session.username }} 🌟</h2>
+        <div class="links">
+            <a href="{{ url_for('log') }}">📊 Mood Log</a>
+            <a href="{{ url_for('about_page') }}">ℹ️ About</a>
+            <a href="{{ url_for('help_page') }}">❓ Help</a>
+            <a href="{{ url_for('logout') }}">🚪 Logout</a>
+        </div>
+    </div>
+
+    <div class="hero-banner">
+        <h1>🌈 Track Your Emotions Daily</h1>
+        <p>Every mood matters. Let's take a small step toward emotional wellness today.</p>
+    </div>
+
+    <div class="form-container">
+        <h2>How are you feeling right now?</h2>
+        <p>Select the emoji that best represents your current mood 👇</p>
+
+        <form method="POST" class="login-form">
+            <div class="emoji-options">
+                <button type="submit" name="mood" value="Happy" title="Happy">😊</button>
+                <button type="submit" name="mood" value="Sad" title="Sad">😢</button>
+                <button type="submit" name="mood" value="Angry" title="Angry">😡</button>
+                <button type="submit" name="mood" value="Neutral" title="Neutral">😐</button>
+                <button type="submit" name="mood" value="Good" title="Good">😌</button>
+            </div>
+        </form>
+
+        {% if mood %}
+            <div class="suggestion-box">
+                <h3>You logged feeling: <span style="font-size: 1.4em;">{{ mood }}</span> 💬</h3>
+                <p>Here's something to help you feel even better 💡</p>
+                <ul class="suggestions">
+                    {% for s in suggestions %}
+                        <li>{{ s }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Wellness & Care · Your emotional well-being partner 💖</p>
+    </footer>
+</body>
+</html>

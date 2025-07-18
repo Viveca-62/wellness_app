@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Mood - Wellness & Care</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="top-bar">
+        <h2>Hi, {{ session.username }} 👋</h2>
+        <div class="links">
+            <a href="{{ url_for('dashboard') }}">🏠 Dashboard</a>
+            <a href="{{ url_for('tracker') }}">📊 Mood Chart</a>
+            <a href="{{ url_for('logout') }}">🚪 Logout</a>
+        </div>
+    </div>
+
+    <!-- Mood Display Section -->
+    <div class="form-container">
+        <h2>Your Current Mood:</h2>
+        <p class="big-mood">{{ mood }} 💫</p>
+
+        <p class="support-text">Every emotion you feel is valid ❤️ Take a moment to breathe.</p>
+
+        <h3>Here's something for you:</h3>
+        <ul class="suggestions">
+            {% for suggestion in suggestions %}
+                <li>🌟 {{ suggestion }}</li>
+            {% endfor %}
+        </ul>
+
+        <a class="btn-start" href="{{ url_for('dashboard') }}">Log Another Mood</a>
+    </div>
+
+    <!-- Positive Quote Section -->
+    <div class="quote-box">
+        <p>💖 <i>"You’re doing better than you think, {{ session.username }}."</i> 💖</p>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Wellness & Care · Small steps every day lead to big changes 🪷</p>
+    </footer>
+
+</body>
+</html>

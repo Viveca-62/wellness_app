@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Mood Log</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="top-bar">
+        <h2>{{ session.username }}'s Mood History 📘</h2>
+        <div class="links">
+            <a href="{{ url_for('dashboard') }}">🏠 Dashboard</a>
+            <a href="{{ url_for('about_page') }}">ℹ️ About</a>
+            <a href="{{ url_for('help_page') }}">❓ Help</a>
+            <a href="{{ url_for('logout') }}">🚪 Logout</a>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>📅 Daily Mood Log</h2>
+        {% if mood_entries %}
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #f0f4f8;">
+                        <th style="padding: 10px; border-bottom: 1px solid #ccc;">Date & Time</th>
+                        <th style="padding: 10px; border-bottom: 1px solid #ccc;">Mood</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in mood_entries %}
+                        <tr>
+                            <td style="padding: 8px; border-bottom: 1px solid #eee;">{{ entry.timestamp }}</td>
+                            <td style="padding: 8px; border-bottom: 1px solid #eee;">{{ entry.mood }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No mood entries yet. Start logging from the dashboard!</p>
+        {% endif %}
+    </div>
+
+    {% if moods and dates %}
+    <div class="form-container">
+        <h2>📊 Mood Frequency Chart</h2>
+        <canvas id="logChart"></canvas>
+    </div>
+
+    <script>
+        const labels = {{ dates | tojson | safe }};
+        const moodList = {{ moods | tojson | safe }};
+
+        const moodCounts = {};
+        moodList.forEach(m => {
+            moodCounts[m] = (moodCounts[m] || 0) + 1;
+        });
+
+        const ctx = document.getElementById('logChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(moodCounts),
+                datasets: [{
+                    label: 'Mood Frequency',
+                    data: Object.values(moodCounts),
+                    backgroundColor: ['#90ee90', '#ff9999', '#ffcc99', '#cccccc', '#87ceeb'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Occurrences' }
+                    }
+                }
+            }
+        });
+    </script>
+    {% endif %}
+
+    <footer class="footer">
+        <p>&copy; 2025 Wellness & Care · Visualize your emotional journey 💫</p>
+    </footer>
+</body>
+</html>

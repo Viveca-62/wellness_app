@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Help - Wellness & Care</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 18px;
+            background-color: #007acc;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .back-btn:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h2>Help & Support</h2>
+        <div class="links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('about_page') }}">About</a>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>🧠 Frequently Asked Questions</h2>
+        <ul class="help-list">
+            <li><strong>🔐 How do I register?</strong><br>
+                Visit the <a href="{{ url_for('register') }}">Register</a> page to create your free account.
+            </li>
+            <li><strong>😊 How do I track my mood?</strong><br>
+                Once logged in, use the emoji buttons on the dashboard to log your mood instantly.
+            </li>
+            <li><strong>📊 Can I see my mood history?</strong><br>
+                Yes, click on “Mood Log” to view your emotional trends over time.
+            </li>
+            <li><strong>🚪 How do I logout?</strong><br>
+                Use the "Logout" option in the top menu to securely exit your session.
+            </li>
+            <li><strong>🔒 Is my data safe?</strong><br>
+                Absolutely. We store your mood logs securely and only you can access them.
+            </li>
+        </ul>
+
+        <a href="{{ url_for('dashboard') }}" class="back-btn">← Back to Dashboard</a>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Wellness & Care · Helping you feel better, one mood at a time 💙</p>
+    </footer>
+</body>
+</html>

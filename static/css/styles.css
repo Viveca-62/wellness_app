@@ -1,0 +1,355 @@
+/* Global Reset & Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f8ff;
+    color: #222;
+    text-align: center;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #004b7c;
+    margin-top: 20px;
+}
+
+/* Navbar */
+.navbar, .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #d0e7f9;
+    padding: 15px 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+}
+
+.nav-links a, .top-bar .links a {
+    margin-left: 20px;
+    color: #003049;
+    text-decoration: none;
+    font-weight: 500;
+    background-color: #d9f1ff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.nav-links a:hover, .top-bar .links a:hover {
+    background-color: #b6e0f4;
+    color: #005fa3;
+}
+
+/* Logo - resized */
+.logo img {
+    height: 50px;
+    width: auto;
+    margin: 5px 0;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Hero Section */
+.hero-container {
+    background: #f9f9f6;
+    padding-bottom: 40px;
+}
+
+.main-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 60px 10%;
+    background: linear-gradient(to right, #e3f2fd, #ffffff);
+}
+
+.hero-text {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    color: #005f73;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Call-to-Action Button */
+.btn-start {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #007acc;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-start:hover {
+    background-color: #005fa3;
+}
+
+/* Hero Image */
+.hero-image img {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Features Section */
+.features-section {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f0f4f8;
+    padding: 60px 5%;
+    flex-wrap: wrap;
+}
+
+.feature {
+    text-align: center;
+    width: 300px;
+    margin: 20px;
+}
+
+.feature img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    color: #007acc;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+/* Form Container */
+.form-container {
+    background-color: #ffffff;
+    max-width: 480px;
+    margin: 60px auto;
+    padding: 35px 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Forms & Inputs */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input,
+form button {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+form button {
+    background-color: #0096c7;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0077a6;
+}
+
+/* Flash Messages */
+.flash-messages {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 12px;
+    margin: 20px auto;
+    width: 90%;
+    border-radius: 8px;
+    list-style: none;
+}
+
+/* Mood Entry Emoji Buttons */
+.emoji-options button {
+    font-size: 2.2rem;
+    margin: 10px;
+    padding: 12px 20px;
+    border: none;
+    background-color: #e0f7ff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.emoji-options button:hover {
+    background-color: #cbeafc;
+    transform: scale(1.15);
+}
+
+/* Suggestions Box */
+.suggestion-box {
+    margin-top: 30px;
+    background-color: #eaf9ff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.suggestions {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.suggestions li {
+    background-color: #d6f1ff;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    color: #004b7c;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* Tracker Chart Canvas */
+canvas {
+    margin: 20px auto;
+    display: block;
+    max-width: 90%;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Help & About Lists */
+.help-list, .about-list {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0;
+    list-style: none;
+}
+
+.help-list li, .about-list li {
+    background: #eaf7ff;
+    border-left: 6px solid #00b4d8;
+    margin: 10px 0;
+    padding: 12px 18px;
+    border-radius: 6px;
+    text-align: left;
+    color: #003049;
+}
+
+/* Enhanced Register Form */
+.enhanced-register {
+    border: 2px solid #b3e5fc;
+    background: linear-gradient(to right, #f0faff, #e6f7ff);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    transition: 0.3s ease-in-out;
+}
+
+.enhanced-register:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.quote-box {
+    margin-top: 30px;
+    background-color: #e8f4fd;
+    padding: 15px 20px;
+    border-left: 5px solid #00b4d8;
+    border-radius: 8px;
+    font-style: italic;
+    color: #005f73;
+}
+
+/* Dashboard Hero Banner */
+.hero-banner {
+    background: linear-gradient(to right, #d0eaff, #f0f8ff);
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin: 30px auto;
+    max-width: 900px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.hero-banner h1 {
+    font-size: 2rem;
+    color: #005f73;
+}
+
+.hero-banner p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Footer */
+.footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    background: #d0e7f9;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .features-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    canvas {
+        width: 100% !important;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+}

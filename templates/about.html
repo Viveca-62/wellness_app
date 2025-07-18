@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About - Wellness & Care</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="top-bar">
+        <h2>About Wellness & Care</h2>
+        <div class="links">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('help_page') }}">Help</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <h2>Welcome to Wellness & Care 🌿</h2>
+        <p>
+            Wellness & Care is a web-based mood tracking application designed to support emotional well-being.
+            It helps users log their feelings, visualize mood trends, and receive meaningful suggestions based on their current state of mind.
+        </p>
+
+        <ul class="about-list">
+            <li>🎭 Emoji-based daily mood entry system</li>
+            <li>📈 Mood visualization with charts</li>
+            <li>💡 Suggestions tailored to each emotion</li>
+            <li>🔒 Secure login and registration system</li>
+            <li>📊 Mood history log for self-reflection</li>
+        </ul>
+
+        <p>
+            Whether you're feeling great or just okay, this app encourages you to pause and reflect on your emotions.
+            Wellness & Care empowers you to make positive choices and maintain emotional balance.
+        </p>
+
+        <a href="{{ url_for('dashboard') }}" class="back-btn">← Back to Dashboard</a>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Wellness & Care · Created to uplift your emotional well-being 💖</p>
+    </footer>
+</body>
+</html>
+

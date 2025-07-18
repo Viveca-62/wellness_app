@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome - Wellness App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Wellness & Care App</h1>
+    <p>Your personal daily wellness log and insights.</p>
+    <div class="links">
+        <a href="{{ url_for('tracker') }}">Track Your Day</a>
+        <a href="{{ url_for('log') }}">View Mood Graph</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood Log</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h2>Wellness Charts</h2>
+    <canvas id="moodChart" height="250"></canvas>
+    <canvas id="sleepChart" height="250"></canvas>
+    <canvas id="waterChart" height="250"></canvas>
+
+    <script>
+        const moodDates = {{ dates | tojson | safe }};
+        const moodLabels = {{ moods | tojson | safe }};
+        const sleepData = {{ sleep | tojson | safe }};
+        const waterData = {{ water | tojson | safe }};
+
+        const moodMap = { "Happy": 5, "Good": 4, "Neutral": 3, "Sad": 2, "Angry": 1 };
+        const numericMoods = moodLabels.map(m => moodMap[m] || 0);
+
+        function createChart(id, label, data, color) {
+            new Chart(document.getElementById(id).getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: moodDates,
+                    datasets: [{
+                        label: label,
+                        data: data,
+                        fill: false,
+                        borderColor: color,
+                        tension: 0.3,
+                        pointRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        createChart('moodChart', 'Mood Over Time', numericMoods, 'rgba(255, 99, 132, 1)');
+        createChart('sleepChart', 'Sleep Hours', sleepData, 'rgba(54, 162, 235, 1)');
+        createChart('waterChart', 'Water Intake (cups)', waterData, 'rgba(75, 192, 192, 1)');
+    </script>
+</body>
+</html>

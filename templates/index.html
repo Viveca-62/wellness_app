@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Wellness & Care</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="hero-container">
+        <!-- Navbar -->
+        <header class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Wellness & Care Logo">
+            </div>
+            <nav class="nav-links">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+                <a href="{{ url_for('about_page') }}">About</a>
+                <a href="{{ url_for('help_page') }}">Help</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <div class="main-hero">
+            <div class="hero-text">
+                <h1>Life Wellness & Emotional Vitality</h1>
+                <p>Track your emotions, explore your mental well-being, and get supportive suggestions every day.  
+                   <strong>Wellness & Care</strong> helps you visualize your feelings and take meaningful steps forward.</p>
+                <a href="{{ url_for('login') }}" class="btn-start">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='images/hero-wellness.jpg') }}" alt="Wellness and Care">
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="feature">
+            <img src="{{ url_for('static', filename='images/mood-emoji.png') }}" alt="Mood Emoji">
+            <h3>Emoji-Based Mood Entry</h3>
+            <p>Log your feelings through expressive emojis — quick, easy, and intuitive.</p>
+        </div>
+        <div class="feature">
+            <img src="{{ url_for('static', filename='images/chart-visual.png') }}" alt="Mood Chart">
+            <h3>Mood Visualization</h3>
+            <p>Understand your emotional journey with clear, interactive bar charts.</p>
+        </div>
+        <div class="feature">
+            <img src="{{ url_for('static', filename='images/suggestion-light.png') }}" alt="Suggestion Icon">
+            <h3>Mindful Suggestions</h3>
+            <p>Receive helpful and mindful suggestions personalized to your current state of mind.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Wellness & Care. Crafted with care for your well-being.</p>
+    </footer>
+</body>
+</html>

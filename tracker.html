@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Wellness Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h2>Daily Entry</h2>
+    <form method="POST">
+        <input type="date" name="date" required>
+        <input type="number" name="water" placeholder="Water Intake (cups)" required>
+        <input type="number" name="sleep" placeholder="Sleep (hours)" required>
+        <input type="text" name="mood" placeholder="Mood (Happy, Sad, Neutral...)" required>
+        <input type="text" name="exercise" placeholder="Exercise (optional)">
+        <button type="submit">Save Entry</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logged Out - Wellness & Care</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>You’ve been logged out. 👋</h2>
+        <p>Remember: Your emotions are valid, and taking care of yourself is important.</p>
+        <p>We’ll be here whenever you’re ready 💖</p>
+
+        <a href="{{ url_for('login') }}" class="btn-start">Log in Again</a>
+        <a href="{{ url_for('index') }}" class="btn-start" style="background-color: #ccc; color: #333;">Back to Home</a>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Wellness & Care · Take care, see you soon! 🌿</p>
+    </footer>
+</body>
+</html>

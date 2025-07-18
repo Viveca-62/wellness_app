@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Wellness & Care</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <h2>Login</h2>
+        <div class="links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('about_page') }}">About</a>
+            <a href="{{ url_for('help_page') }}">Help</a>
+        </div>
+    </div>
+
+    <!-- Login Form -->
+    <div class="form-container">
+        <h2>Welcome Back!</h2>
+        <p class="subtitle">Log in to track your mood and take care of your well-being 💖</p>
+
+        <form method="POST" class="login-form">
+            <input type="text" name="username" placeholder="Enter your username" required>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="login-link">Don't have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flash-messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Wellness & Care · Your emotional well-being partner 💫</p>
+    </footer>
+</body>
+</html>
